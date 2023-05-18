@@ -1,0 +1,15 @@
+name: 'Windows HTTPS Fail'
+
+on:
+  push:
+    - main
+  workflow_dispatch:
+
+jobs:
+  windows-test:
+    name: Windows Test
+    runs-on: windows-latest
+    steps:
+    - name: Download failing file
+      shell: powershell
+      run: Invoke-WebRequest -Uri https://github.com/tgstation/tgstation-server/releases/download/tgstation-server-v4.8.1/ServerUpdatePackage.zip -OutFile test.zip
