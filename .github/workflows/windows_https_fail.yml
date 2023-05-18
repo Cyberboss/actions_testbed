@@ -2,7 +2,8 @@ name: 'Windows HTTPS Fail'
 
 on:
   push:
-    - main
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
