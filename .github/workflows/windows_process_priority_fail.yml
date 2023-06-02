@@ -12,3 +12,11 @@ jobs:
       shell: powershell
       run: |
         [System.Diagnostics.Process]::GetCurrentProcess().PriorityClass
+  linux-test:
+    name: Linux Test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check Local Process Priority
+      shell: powershell
+      run: |
+        [System.Diagnostics.Process]::GetCurrentProcess().PriorityClass
