@@ -1,8 +1,6 @@
 name: 'Windows Process Priority Fail'
 
 on:
-  push:
-    - main
   workflow_dispatch:
 
 jobs:
