@@ -16,7 +16,9 @@ jobs:
     name: Linux Test
     runs-on: ubuntu-latest
     steps:
-    - name: Check Local Process Priority
-      shell: powershell
-      run: |
-        [System.Diagnostics.Process]::GetCurrentProcess().PriorityClass
+    - uses: Amadevus/pwsh-script@v2
+      id: ps-script
+      with:
+        script: return [System.Diagnostics.Process]::GetCurrentProcess().PriorityClass.ToString()
+
+    - run: echo '${{ steps.ps-script.outputs.result }}'
