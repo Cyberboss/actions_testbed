@@ -11,4 +11,4 @@ jobs:
     - name: Check Local Process Priority
       shell: powershell
       run: |
-      [System.Diagnostics.Process]::GetCurrentProcess().PriorityClass
+        [System.Diagnostics.Process]::GetCurrentProcess().PriorityClass
