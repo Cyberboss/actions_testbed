@@ -1,0 +1,16 @@
+name: 'Windows Process Priority Fail'
+
+on:
+  push:
+    - main
+  workflow_dispatch:
+
+jobs:
+  windows-test:
+    name: Windows Test
+    runs-on: windows-latest
+    steps:
+    - name: Check Local Process Priority
+      shell: powershell
+      run: |
+      [System.Diagnostics.Process]::GetCurrentProcess().PriorityClass
