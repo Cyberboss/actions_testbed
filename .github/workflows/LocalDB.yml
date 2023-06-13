@@ -13,6 +13,8 @@ jobs:
         database-type: [ 'SqlServer', 'Sqlite', 'PostgresSql', 'MariaDB', 'MySql' ]
         watchdog-type: [ 'Basic', 'System' ]
         configuration: [ 'Debug', 'Release' ]
+        more-jobs: ['a','b']
+        even-more-jobs:['c','d']
         os: ['windows-2019','windows-2022']
     runs-on: ${{ matrix.os }}
     
