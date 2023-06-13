@@ -25,4 +25,4 @@ jobs:
 
       run: |
         Write-Host "Checking"
-        sqlcmd -l 60 -S "(localdb)\MSSQLLocalDB" -Q "SELECT @@VERSION;
+        sqlcmd -l 60 -S "(localdb)\MSSQLLocalDB" -Q "SELECT @@VERSION;"
