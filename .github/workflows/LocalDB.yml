@@ -6,7 +6,6 @@ on:
 jobs:
   test:
     name: Windows Live Tests
-
     strategy:
       fail-fast: false
       matrix:
@@ -17,14 +16,9 @@ jobs:
         even-more-jobs: ['c','d']
         os: ['windows-2019','windows-2022']
     runs-on: ${{ matrix.os }}
-    
-
-
     steps:
     - name: Check LocalDB Connection
       shell: powershell
-      
-
       run: |
         Write-Host "Checking"
-        sqlcmd -l 60 -S "(localdb)\MSSQLLocalDB" -Q "SELECT @@VERSION;"
+        sqlcmd -l 600 -S "(localdb)\MSSQLLocalDB" -Q "SELECT @@VERSION;"
