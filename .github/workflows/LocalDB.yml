@@ -1,0 +1,28 @@
+name: LocalDB Failure
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Windows Live Tests
+
+    strategy:
+      fail-fast: false
+      matrix:
+        database-type: [ 'SqlServer', 'Sqlite', 'PostgresSql', 'MariaDB', 'MySql' ]
+        watchdog-type: [ 'Basic', 'System' ]
+        configuration: [ 'Debug', 'Release' ]
+        os: ['windows-2019','windows-2022']
+    runs-on: ${{ matrix.os }}
+    
+
+
+    steps:
+    - name: Check LocalDB Connection
+      shell: powershell
+      
+
+      run: |
+        Write-Host "Checking"
+        sqlcmd -l 60 -S "(localdb)\MSSQLLocalDB" -Q "SELECT @@VERSION;
