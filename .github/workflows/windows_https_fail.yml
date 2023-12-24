@@ -7,7 +7,11 @@ jobs:
   windows-test:
     name: Windows Test
     runs-on: windows-latest
-    steps:
-    - name: Download failing file
-      shell: powershell
-      run: Invoke-WebRequest -Uri https://github.com/tgstation/tgstation-server/releases/download/tgstation-server-v4.8.1/ServerUpdatePackage.zip -OutFile test.zip
+    steps:      
+      - name: Install winget
+        uses: Cyberboss/install-winget@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Install python
+        run: winget install python --source=msstore --disable-interactivity --accept-source-agreements --accept-package-agreements
