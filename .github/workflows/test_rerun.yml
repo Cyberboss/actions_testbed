@@ -1,0 +1,14 @@
+name: Rerun Flaky Live Tests
+on:
+  workflow_dispatch:
+jobs:
+  rerun_flaky_tests:
+    name: Rerun Flaky Tests
+    runs-on: ubuntu-latest
+    steps:
+    - name: Rerun flaky tests
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const { rerunFlakyTests } = await import('${{ github.workspace }}/.github/workflows/scripts/rerunFlakyTests.js')
+          await rerunFlakyTests({ github, context })
