@@ -16,7 +16,7 @@ async function getFailedJobsForRun(github) {
             attempt_number: 1
 		},
 		response => {
-			return response.data.jobs;
+			return response.data;
 		});
 
     console.log(JSON.stringify(jobs));
