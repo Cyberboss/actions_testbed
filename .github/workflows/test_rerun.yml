@@ -6,6 +6,9 @@ jobs:
     name: Rerun Flaky Tests
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
     - name: Rerun flaky tests
       uses: actions/github-script@v6
       with:
