@@ -6,7 +6,7 @@ const CONSIDERED_JOBS = [
 	"Build .deb Package"
 ];
 
-async function getFailedJobsForRun(github, context, workflowRunId, runAttempt) {
+async function getFailedJobsForRun(github) {
 	const jobs = await github.paginate(
 		github.rest.actions.listJobsForWorkflowRunAttempt,
 		{
@@ -27,10 +27,7 @@ async function getFailedJobsForRun(github, context, workflowRunId, runAttempt) {
 
 export async function rerunFlakyTests({ github, context }) {
 	const failingJobs = await getFailedJobsForRun(
-		github,
-		context,
-		context.payload.workflow_run.id,
-		context.payload.workflow_run.run_attempt
+		github
 	);
 
 	if (failingJobs.length > 1) {
