@@ -1,0 +1,12 @@
+name: 'xmlstarlet test'
+
+on:
+  workflow_dispatch:
+
+jobs:
+  linux-test:
+    name: Linux Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check xmlstarlet version
+        run: xmlstarlet --version
